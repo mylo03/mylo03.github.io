@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;  
+            justify-content: flex-start;  
+            align-items: center;  
+            margin: 0;
+            padding: 0;
+        }
+
+        .header_container {
+            width: 95vw;
+            margin-top: 10px;
+            display: flex;
+            font-size: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .linkedin-logo {
+            font-size: 30px;
+            color: #6f6b6b;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-logo:hover {
+            color: #0e76a8;
+        }
+
+        .product-container {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            width: 95vw;
+        }
+
+        .product-video {
+            width: 50%;
+        }
+
+        .product-explanation {
+            width: 50%;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Style for the title and year */
+        .product-title {
+            margin: 0; /* Remove default margin from title */
+            margin-top: 4px;
+        }
+
+        .product-year {
+            font-size: 14px;
+            color: #808080;
+            display: block;
+            margin-top: 4px; /* Set small top margin for spacing */
+        }
+
+        /* Back Icon Style */
+        .back-icon {
+            font-size: 25px;
+            color: #6f6b6b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-icon:hover {
+            color: #0e76a8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header_container">
+        <!-- Back Icon (on the left side) -->
+        <i class="fas fa-arrow-left back-icon" onclick="window.history.back();"></i>
+        <a href="https://www.linkedin.com/in/emilefarman" target="_blank">
+            <i class="fab fa-linkedin linkedin-logo"></i>
+        </a>
+    </div>
+
+    <div class="product-container">
+        <div class="product-video">
+            <video id="product-video" controls></video>
+        </div>
+        <div class="product-explanation">
+            <h2 id="product-title" class="product-title">Product Title</h2>
+            <span id="product-year" class="product-year">2025</span> 
+            <p id="product-description">This is a detailed explanation of the product shown in the video. It describes the features, use cases, and benefits of the product, providing all the necessary information for the user to make a purchase decision.</p>
+        </div>
+    </div>
+
+    <script>
+        // Extract query parameter "product"
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+
+        // Define product details for each product
+        const productDetails = {
+            Memories: {
+                video: "videos/Memories.mov",
+                title: "Journey To Hire",
+                description: "A Trello-inspired job application tracker designed to help you organise and log applications effortlessly. Built as a Chrome extension, it lets you upload your CV to analyze key skills and identify gaps. It also allows you to store job details and includes a celebration mode after submitting an application.",
+                year: "2025"
+            },
+            IndividualProjectReduced: {
+                video: "videos/IndividualProjectReduced.mov",
+                title: "Smart Glasses",
+                description: "Designed to assist individuals with total blindness, the smart glasses detect road signs and pedestrian crossings to improve navigation. It integrates SolidWorks for design, PyTorch for computer vision, and embedded software for real-time image capture and Bluetooth transmission.",
+                year: "2024"
+            },
+            FlareRoulette: {
+                video: "videos/FlareRoulette.mov",
+                title: "Flare Roulette",
+                description: "An exciting game that adds an interactive element to your experience, full of surprises.",
+                year: "2024"
+            },
+            ipear2: {
+                video: "videos/ipear2.mov",
+                title: "iPear",
+                description: "A child-friendly interactive tablet featuring a variety of games built with PyGame. The project encompassed market research, component selection and procurement, embedded software development, and the creation of a mobile app for parental controls. It also included an advertising campaign, culminating in a final presentation to BAE Systems.",
+                year: "2023"
+            },
+            Equity2: {
+                video: "videos/Equity2.mov",
+                title: "Equity Analysis Tool",
+                description: "A screening tool, designed to simplify the process of quickly scouting through equtiies collected from Bloomberg, the tool. With the baility to apply minimu mand maximum thresholds, as well as weighting for different factors.",
+                year: "2024"
+            }
+        };
+
+        // Set product details based on the query parameter
+        if (productDetails[productName]) {
+            document.getElementById('product-video').src = productDetails[productName].video;
+            document.getElementById('product-title').innerText = productDetails[productName].title;
+            document.getElementById('product-description').innerText = productDetails[productName].description;
+            document.getElementById('product-year').innerText = productDetails[productName].year;
+        } else {
+            // Default case if product is not found
+            document.getElementById('product-title').innerText = "Product Not Found";
+            document.getElementById('product-description').innerText = "Sorry, the requested product could not be found.";
+        }
+    </script>
+</body>
+</html>
