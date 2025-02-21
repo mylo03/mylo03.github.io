@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="projectgrid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Project Grid</title>
     <style>
@@ -16,9 +14,8 @@
         }
 
         .header_container {
-            width: 70vw;
-            margin-top: 30px;
-            margin-bottom: 40px;
+            width: 95vw;
+            margin-top: 10px;
             display: flex;
             font-size: 40px;
             align-items: center;
@@ -28,8 +25,8 @@
         }
 
         .linkedin-logo {
-            font-size: 45px;
-            color: #555454;
+            font-size: 30px;
+            color: #343232;
             transition: color 0.3s ease;
         }
 
@@ -41,10 +38,37 @@
             column-count: 3;  
             column-gap: 16px;  
             padding: 0px;
-            width: 70%;
+            width: 95%;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 40px;
+            display: block;  
+        }
+
+        /* All Container */
+        .all-container { 
+            width: 95vw;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 20px;
+        }
+
+        .all-container div {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .all-container .active {
+            color: black; 
+        }
+
+        .all-container .inactive {
+            color: rgb(194, 191, 191);
         }
 
         .masonry-item {
@@ -62,8 +86,6 @@
             transition: transform 0.4s ease, opacity 1s ease;  
         }
 
-
-
         .masonry-item video:hover{
             transform: scale(1.03);  
         }
@@ -75,54 +97,84 @@
         }
 
         .header_container div {
-            color: #555454;  
+            color: #343232;  
+        }
+
+
+        .masonry-container#all-posts {
+            display: block; 
+        }
+
+        .masonry-container#coming-soon-posts {
+            display: none; 
         }
 
     </style>
 </head>
 <body>
     <div class="header_container">
-        <div>MVPs</div>
-        <a href="https://www.linkedin.com/in/mylo-farman" target="_blank">
+        <div style="font-size: 18px;">EMILE (MYLO) FARMAN</div>
+        <a href="linkedin.com/in/emilefarman" target="_blank">
             <i class="fab fa-linkedin linkedin-logo"></i>
         </a>
     </div>
 
-    <div class="masonry-container">
+    <div class="all-container">
+        <div id="all" class="active">Finished Projects</div>
+        <div id="coming-soon" class="inactive">In Development</div>
+    </div>
 
+    <div class="masonry-container" id="all-posts">
+        <!-- All posts -->
         <div class="masonry-item">
             <video src="videos/Memories.mov" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='https://example.com';"></video>
         </div>
-
         <div class="masonry-item">
             <video src="videos/IndividualProjectReduced.mov" onmouseenter="this.play()" onmouseleave="this.pause()" onloadedmetadata="this.playbackRate = 1.2" onclick="window.location.href='https://example.com';"></video>
         </div>
-
         <div class="masonry-item">
             <video src="videos/FlareRoulette.mov" onmouseenter="this.play()" onmouseleave="this.pause()" onclick="window.location.href='https://example.com';"></video>
         </div>
-
-        <div class="masonry-item">
-            <video src="videos/IMG_4532.mov" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='https://example.com';"></video>
-        </div>
-
-        <div class="masonry-item">
+        <div class="masonry-item coming-soon">
             <video src="videos/ipear2.mov" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='https://example.com';"></video>
         </div>
-
-        <div class="masonry-item">
+        <div class="masonry-item coming-soon">
             <video src="videos/Equity2.mov" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='https://example.com';"></video>
         </div>
-
-
-
     </div>
 
+    <div class="masonry-container" id="coming-soon-posts">
+        <!-- Coming Soon posts -->
+        <div class="masonry-item">
+            <video src="videos/Memories.mov" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='https://example.com';"></video>
+        </div>
+    </div>
+
+
     <script>
+        // Toggle
+        document.getElementById('all').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('inactive');
+            document.getElementById('coming-soon').classList.add('inactive');
+            document.getElementById('coming-soon').classList.remove('active');
+            document.getElementById('all-posts').style.display = 'block';  // Show the container
+            document.getElementById('coming-soon-posts').style.display = 'none'; 
+        });
+
+        document.getElementById('coming-soon').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('inactive');
+            document.getElementById('all').classList.add('inactive');
+            document.getElementById('all').classList.remove('active');
+            document.getElementById('all-posts').style.display = 'none';  // Hide the container
+            document.getElementById('coming-soon-posts').style.display = 'block';
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             const videos = document.querySelectorAll('.masonry-item video');
             videos.forEach(video => {
-                video.style.animation = 'fadeIn 3s forwards';
+                video.style.animation = 'fadeIn 0.2s forwards';
                 video.onload = () => {
                     video.style.opacity = 1;
                 };
