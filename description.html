@@ -39,22 +39,28 @@
 
         .product-container {
             display: flex;
-            gap: 40px;
+            flex-direction: column; 
+            gap: 20px; 
             margin-top: 30px;
             width: 95vw;
         }
 
         .product-video {
-            width: 50%;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
         }
 
         .product-explanation {
-            width: 50%;
+            width: 100%;
         }
 
         video {
             width: 100%;
             height: auto;
+            max-width: 100%;
+            box-sizing: border-box;
             border-radius: 8px;
         }
 
@@ -96,13 +102,13 @@
     </div>
 
     <div class="product-container">
-        <div class="product-video">
-            <video id="product-video" controls></video>
-        </div>
         <div class="product-explanation">
             <h2 id="product-title" class="product-title">Product Title</h2>
             <span id="product-year" class="product-year">2025</span> 
             <p id="product-description">This is a detailed explanation of the product shown in the video. It describes the features, use cases, and benefits of the product, providing all the necessary information for the user to make a purchase decision.</p>
+        </div>
+        <div class="product-video">
+            <video id="product-video" controls></video>
         </div>
     </div>
 
