@@ -54,6 +54,7 @@
             display: block;  
         }
 
+        /* Column Count */
         @media (max-width: 768px) {
             .masonry-container {
                 column-count: 2;
@@ -67,8 +68,7 @@
         }
 
 
-
-        /* All Container */
+        /* Choosing Finished or Ongoing */
         .all-container { 
             width: 95vw;
             margin-top: 40px;
@@ -94,19 +94,12 @@
             color: rgb(194, 191, 191);
         }
 
+
+        /* Individual Item */
         .masonry-item {
             width: 110%;
             margin-bottom: 16px;
             break-inside: avoid; 
-        }
-
-        .masonry-item video {
-            width: 90%;
-            height: auto;
-            display: block;
-            border-radius: 8px;
-            opacity: 0;
-            transition: transform 0.4s ease, opacity 1s ease;  
         }
 
         .masonry-item img {
@@ -118,22 +111,60 @@
             transition: transform 0.4s ease, opacity 1s ease;  
         }
 
-        .masonry-item video:hover{
-            cursor: pointer;
-            transform: scale(1.01);  
-        }
-
         .masonry-item img:hover{
             cursor: pointer;
             transform: scale(1.01);  
         }
 
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+
+
+
+
+        /* Mobile */
+        .masonry-item-mobile {
+            width: 110%;
+            margin-bottom: 16px;
+            break-inside: avoid; 
         }
 
+        .masonry-item-mobile img {
+            width: 90%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            opacity: 1;
+            transition: transform 0.4s ease, opacity 1s ease;  
+        }
+
+        .masonry-item-mobile img:hover{
+            cursor: pointer;
+            transform: scale(1.01);  
+        }
+
+
+        /* Coming Soon */
+        .masonry-item-soon {
+            width: 110%;
+            margin-bottom: 16px;
+            break-inside: avoid; 
+        }
+
+        .masonry-item-soon img {
+            width: 90%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            opacity: 1;
+            transition: transform 0.4s ease, opacity 1s ease;  
+        }
+
+        .masonry-item-soon img:hover{
+            cursor: pointer;
+            transform: scale(1);  
+        }
+
+        
+        /* Initial set up */
         .masonry-container#all-posts {
             display: block; 
         }
@@ -142,30 +173,20 @@
             display: none; 
         }
 
+        /* All posts - which one*/
         @media (min-width: 650px) {
-            .masonry-item video {
-                display: block;
-                height: auto;
-            }
-            #all-posts img {
+            .masonry-item-mobile {
                 display: none;
             }
         }
 
+        /* Hide desktop images on smaller screens */
         @media (max-width: 650px) {
-            #all-posts video {
-                display: none;  
+            .masonry-item {
+                display: none;
             }
         }
 
-        .masonry-item video {
-            object-fit: cover;
-            background-color: #000; 
-        }
-
-        video[poster] {
-            object-fit: cover;
-        }
 
     </style>
 </head>
@@ -182,58 +203,97 @@
         <div id="coming-soon" class="inactive">Ongoing Project Collaborations</div>
     </div>
 
-
     <div class="masonry-container" id="all-posts">
-        <!-- All posts -->
-
+        <!-- JourneyToHire -->
         <div class="masonry-item">
-            <video class="video-content" 
-                   src="videos/JourneyToHire.mp4" 
-                   preload="auto" 
-                   onmouseenter="this.play()" 
-                   onmouseleave="this.pause(); this.currentTime = 0;"
-                   muted 
-                   onclick="window.location.href='description.html?product=Memories'"></video>
+            <img class="image-content hover-image" 
+                src="large-images-1/JourneyToHire.png" 
+                alt="Journey To Hire Desktop"
+                onclick="window.location.href='description.html?product=JourneyToHire'"
+                data-hover="large-images-2/JourneyToHire.png"
+                data-original="large-images-1/JourneyToHire.png">
+        </div>
+        <div class="masonry-item-mobile">
             <img class="image-content" 
                  src="thumbnails/JourneyToHire.png" 
-                 alt="Journey To Hire" 
-                 onclick="window.location.href='description.html?product=Memories'" />
+                 alt="Journey To Hire Mobile"
+                 onclick="window.location.href='description.html?product=JourneyToHire'">
         </div>
-
+    
+        <!-- iPear -->
         <div class="masonry-item">
-            <video class="video-content" src="videos/IndividualProjectReduced.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;"; onclick="window.location.href='description.html?product=IndividualProjectReduced'"></video>
-            <img class="image-content" src="thumbnails/SmartGlasses.png" alt="Individual Project Reduced" onclick="window.location.href='description.html?product=IndividualProjectReduced'" />
+            <img class="image-content hover-image" 
+                src="large-images-1/iPear.png" 
+                alt="iPear Desktop"
+                onclick="window.location.href='description.html?product=iPear'"
+                data-hover="large-images-2/iPear.png"
+                data-original="large-images-1/iPear.png">
         </div>
-        
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/iPear.png" 
+                 alt="iPear Mobile"
+                 onclick="window.location.href='description.html?product=iPear'">
+        </div>
+    
+        <!-- FlareRoulette -->
         <div class="masonry-item">
-            <video class="video-content" src="videos/FlareRoulette.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" onclick="window.location.href='description.html?product=FlareRoulette'"></video>
-            <img class="image-content" src="thumbnails/BlockRoulette.png" alt="Flare Roulette" onclick="window.location.href='description.html?product=FlareRoulette'" />
+            <img class="image-content hover-image" 
+                src="large-images-1/FlareRoulette.png" 
+                alt="FlareRoulette Desktop"
+                onclick="window.location.href='description.html?product=FlareRoulette'"
+                data-hover="large-images-2/FlareRoulette.png"
+                data-original="large-images-1/FlareRoulette.png">
         </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/BlockRoulette.png" 
+                 alt="FlareRoulette Mobile"
+                 onclick="window.location.href='description.html?product=FlareRoulette'">
+        </div>
+    
+        <!-- StockScreeningTool -->
         <div class="masonry-item">
-            <video class="video-content" src="videos/ipear2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" muted onclick="window.location.href='description.html?product=ipear2'"></video>
-            <img class="image-content" src="thumbnails/iPear.png" alt="Ipear2" onclick="window.location.href='description.html?product=ipear2'" />
+            <img class="image-content hover-image" 
+                src="large-images-1/StockScreeningTool.png" 
+                alt="StockScreeningTool Desktop"
+                onclick="window.location.href='description.html?product=StockScreeningTool'"
+                data-hover="large-images-2/StockScreeningTool.png"
+                data-original="large-images-1/StockScreeningTool.png">
         </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/StockScreeningTool.png" 
+                 alt="StockScreeningTool Mobile"
+                 onclick="window.location.href='description.html?product=StockScreeningTool'">
+        </div>
+    
+        <!-- SmartGlasses -->
         <div class="masonry-item">
-            <video class="video-content" src="videos/Equity2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" muted onclick="window.location.href='description.html?product=Equity2'"></video>
-            <img class="image-content" src="thumbnails/StockScreeningTool.png" alt="Equity2" onclick="window.location.href='description.html?product=Equity2'" />
+            <img class="image-content hover-image" 
+                src="large-images-1/SmartGlasses.png" 
+                alt="SmartGlasses Desktop"
+                onclick="window.location.href='description.html?product=SmartGlasses'"
+                data-hover="large-images-2/SmartGlasses.png"
+                data-original="large-images-1/SmartGlasses.png">
         </div>
-
-        <div class="masonry-item">
-            <img class="image-content" src="thumbnails/ROBOHACK24.png" alt="Equity2" onclick="window.location.href='description.html?product=ROBOHACK24'" />
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/SmartGlasses.png" 
+                 alt="SmartGlasses Mobile"
+                 onclick="window.location.href='description.html?product=SmartGlasses'">
         </div>
-
     </div>
 
     <div class="masonry-container" id="coming-soon-posts">
         <!-- Coming Soon posts -->
-        <div class="masonry-item">
+        <div class="masonry-item-soon">
             <img class="video-content" src="coming-soon/Kew.png" />
         </div>
-        <div class="masonry-item">
+        <div class="masonry-item-soon">
             <img class="video-content" src="coming-soon/Cambridge.png" />
         </div>
     </div>
-
 
     <script>
         // Toggle
@@ -255,15 +315,17 @@
             document.getElementById('coming-soon-posts').style.display = 'block';
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const videos = document.querySelectorAll('.masonry-item video');
-            videos.forEach(video => {
-                video.style.animation = 'fadeIn 0.2s forwards';
-                video.onload = () => {
-                    video.style.opacity = 1;
-                };
+
+        document.querySelectorAll('.hover-image').forEach(img => {
+            img.addEventListener('mouseenter', function () {
+                this.src = this.getAttribute('data-hover');
+            });
+
+            img.addEventListener('mouseleave', function () {
+                this.src = this.getAttribute('data-original');
             });
         });
+
     </script>
 </body>
 </html>
