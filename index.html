@@ -113,7 +113,7 @@
 
         .masonry-item img:hover{
             cursor: pointer;
-            transform: scale(1.01);  
+            transform: scale(1);  
         }
 
 
@@ -138,7 +138,7 @@
 
         .masonry-item-mobile img:hover{
             cursor: pointer;
-            transform: scale(1.01);  
+            transform: scale(1);  
         }
 
 
@@ -185,6 +185,10 @@
             .masonry-item {
                 display: none;
             }
+        }
+
+        .masonry-item-soon {
+            pointer-events: none;
         }
 
 
@@ -282,6 +286,23 @@
                  src="thumbnails/StockScreeningTool.png" 
                  alt="StockScreeningTool Mobile"
                  onclick="window.location.href='description.html?product=StockScreeningTool'">
+        </div>
+
+
+         <!-- RoboHack -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/ROBOHACK.png" 
+                alt="StockScreeningTool Desktop"
+                onclick="window.location.href='description.html?product=ROBOHACK'"
+                data-hover="large-images-2/ROBOHACK.png"
+                data-original="large-images-1/ROBOHACK.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/ROBOHACK24.png" 
+                 alt="ROBOHACK Mobile"
+                 onclick="window.location.href='description.html?product=ROBOHACK'">
         </div>
 
     </div>
