@@ -158,6 +158,15 @@
             }
         }
 
+        .masonry-item video {
+            object-fit: cover;
+            background-color: #000; 
+        }
+
+        video[poster] {
+            object-fit: cover;
+        }
+
     </style>
 </head>
 <body>
@@ -176,24 +185,35 @@
 
     <div class="masonry-container" id="all-posts">
         <!-- All posts -->
+
         <div class="masonry-item">
-            <video class="video-content" src="videos/JourneyToHire.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='description.html?product=Memories'"></video>
-            <img class="image-content" src="thumbnails/JourneyToHire.png" alt="Journey To Hire" onclick="window.location.href='description.html?product=Memories'" />
+            <video class="video-content" 
+                   src="videos/JourneyToHire.mp4" 
+                   preload="auto" 
+                   onmouseenter="this.play()" 
+                   onmouseleave="this.pause(); this.currentTime = 0;"
+                   muted 
+                   onclick="window.location.href='description.html?product=Memories'"></video>
+            <img class="image-content" 
+                 src="thumbnails/JourneyToHire.png" 
+                 alt="Journey To Hire" 
+                 onclick="window.location.href='description.html?product=Memories'" />
         </div>
+
         <div class="masonry-item">
-            <video class="video-content" src="videos/IndividualProjectReduced.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause()" onclick="window.location.href='description.html?product=IndividualProjectReduced'"></video>
+            <video class="video-content" src="videos/IndividualProjectReduced.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;"; onclick="window.location.href='description.html?product=IndividualProjectReduced'"></video>
             <img class="image-content" src="thumbnails/SmartGlasses.png" alt="Individual Project Reduced" onclick="window.location.href='description.html?product=IndividualProjectReduced'" />
         </div>
         <div class="masonry-item">
-            <video class="video-content" src="videos/FlareRoulette.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause()" onclick="window.location.href='description.html?product=FlareRoulette'"></video>
+            <video class="video-content" src="videos/FlareRoulette.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" onclick="window.location.href='description.html?product=FlareRoulette'"></video>
             <img class="image-content" src="thumbnails/BlockRoulette.png" alt="Flare Roulette" onclick="window.location.href='description.html?product=FlareRoulette'" />
         </div>
         <div class="masonry-item">
-            <video class="video-content" src="videos/ipear2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='description.html?product=ipear2'"></video>
+            <video class="video-content" src="videos/ipear2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" muted onclick="window.location.href='description.html?product=ipear2'"></video>
             <img class="image-content" src="thumbnails/iPear.png" alt="Ipear2" onclick="window.location.href='description.html?product=ipear2'" />
         </div>
         <div class="masonry-item">
-            <video class="video-content" src="videos/Equity2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause()" muted onclick="window.location.href='description.html?product=Equity2'"></video>
+            <video class="video-content" src="videos/Equity2.mp4" preload="auto" onmouseenter="this.play()" onmouseleave="this.pause(); this.currentTime = 0;" muted onclick="window.location.href='description.html?product=Equity2'"></video>
             <img class="image-content" src="thumbnails/StockScreeningTool.png" alt="Equity2" onclick="window.location.href='description.html?product=Equity2'" />
         </div>
 
