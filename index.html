@@ -348,6 +348,17 @@
             });
         });
 
+
+        window.addEventListener("resize", function() {
+            let masonryContainer = document.querySelector(".masonry-container");
+            if (masonryContainer) {
+                masonryContainer.style.display = "none";
+                setTimeout(() => {
+                    masonryContainer.style.display = "block";
+                }, 10);
+            }
+        });
+
     </script>
 </body>
 </html>
