@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Mylo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fdfdfd;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+
+        .header_container {
+            width: 95vw;
+            margin-top: 10px;
+            display: flex;
+            font-size: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header_container div {
+            color: #121111;  
+        }
+
+        .linkedin-logo {
+            font-size: 30px;
+            color: #6f6b6b;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-logo:hover {
+            color: #0e76a8;
+        }
+
+        .masonry-container {
+            column-count: 3;  
+            column-gap: 16px;  
+            padding: 0px;
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+            display: block;  
+        }
+
+        /* Column Count */
+        @media (max-width: 768px) {
+            .masonry-container {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .masonry-container {
+                column-count: 1;
+            }
+        }
+
+
+        /* Choosing Finished or Ongoing */
+        .all-container { 
+            width: 95vw;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: auto;
+            margin-right: auto;
+            gap: 20px;
+        }
+
+        .all-container div {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .all-container .active {
+            color: black; 
+        }
+
+        .all-container .inactive {
+            color: rgb(194, 191, 191);
+        }
+
+
+        /* Individual Item */
+        .masonry-item {
+            width: 110%;
+            margin-bottom: 16px;
+            break-inside: avoid; 
+        }
+
+        .masonry-item img {
+            width: 90%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            opacity: 1;
+            transition: transform 0.4s ease, opacity 1s ease;  
+        }
+
+        .masonry-item img:hover{
+            cursor: pointer;
+            transform: scale(1);  
+        }
+
+
+
+
+
+        /* Mobile */
+        .masonry-item-mobile {
+            width: 110%;
+            margin-bottom: 16px;
+            break-inside: avoid; 
+        }
+
+        .masonry-item-mobile img {
+            width: 90%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            opacity: 1;
+            transition: transform 0.4s ease, opacity 1s ease;  
+        }
+
+        .masonry-item-mobile img:hover{
+            cursor: pointer;
+            transform: scale(1);  
+        }
+
+
+        /* Coming Soon */
+        .masonry-item-soon {
+            width: 110%;
+            margin-bottom: 16px;
+            break-inside: avoid; 
+        }
+
+        .masonry-item-soon img {
+            width: 90%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            opacity: 1;
+            transition: transform 0.4s ease, opacity 1s ease;  
+        }
+
+        .masonry-item-soon img:hover{
+            cursor: pointer;
+            transform: scale(1);  
+        }
+
+        
+        /* Initial set up */
+        .masonry-container#all-posts {
+            display: block; 
+        }
+
+        .masonry-container#coming-soon-posts {
+            display: none; 
+        }
+
+        /* All posts - which one*/
+        @media (min-width: 650px) {
+            .masonry-item-mobile {
+                display: none;
+            }
+        }
+
+        /* Hide desktop images on smaller screens */
+        @media (max-width: 650px) {
+            .masonry-item {
+                display: none;
+            }
+        }
+
+        .masonry-item-soon {
+            pointer-events: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header_container">
+        <div style="font-size: 18px;">EMILE (MYLO) FARMAN</div>
+        <a href="https://www.linkedin.com/in/emilefarman" target="_blank">
+            <i class="fab fa-linkedin linkedin-logo"></i>
+        </a>
+    </div>
+
+    <div class="all-container">
+        <div id="all" class="active">Finished Projects</div>
+        <div id="coming-soon" class="inactive">Ongoing Project Collaborations</div>
+    </div>
+
+    <div class="masonry-container" id="all-posts">
+        <!-- JourneyToHire -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/JourneyToHire.png" 
+                alt="Journey To Hire Desktop"
+                onclick="window.location.href='description.html?product=JourneyToHire'"
+                data-hover="large-images-2/JourneyToHire.png"
+                data-original="large-images-1/JourneyToHire.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/JourneyToHire.png" 
+                 alt="Journey To Hire Mobile"
+                 onclick="window.location.href='description.html?product=JourneyToHire'">
+        </div>
+    
+        <!-- iPear -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/iPear.png" 
+                alt="iPear Desktop"
+                onclick="window.location.href='description.html?product=iPear'"
+                data-hover="large-images-2/iPear.png"
+                data-original="large-images-1/iPear.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/iPear.png" 
+                 alt="iPear Mobile"
+                 onclick="window.location.href='description.html?product=iPear'">
+        </div>
+
+        <!-- SmartGlasses -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/SmartGlasses.png" 
+                alt="SmartGlasses Desktop"
+                onclick="window.location.href='description.html?product=SmartGlasses'"
+                data-hover="large-images-2/SmartGlasses.png"
+                data-original="large-images-1/SmartGlasses.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/SmartGlasses.png" 
+                 alt="SmartGlasses Mobile"
+                 onclick="window.location.href='description.html?product=SmartGlasses'">
+        </div>
+    
+        <!-- FlareRoulette -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/FlareRoulette.png" 
+                alt="FlareRoulette Desktop"
+                onclick="window.location.href='description.html?product=FlareRoulette'"
+                data-hover="large-images-2/FlareRoulette.png"
+                data-original="large-images-1/FlareRoulette.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/BlockRoulette.png" 
+                 alt="FlareRoulette Mobile"
+                 onclick="window.location.href='description.html?product=FlareRoulette'">
+        </div>
+    
+        <!-- StockScreeningTool -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/StockScreeningTool.png" 
+                alt="StockScreeningTool Desktop"
+                onclick="window.location.href='description.html?product=StockScreeningTool'"
+                data-hover="large-images-2/StockScreeningTool.png"
+                data-original="large-images-1/StockScreeningTool.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/StockScreeningTool.png" 
+                 alt="StockScreeningTool Mobile"
+                 onclick="window.location.href='description.html?product=StockScreeningTool'">
+        </div>
+
+
+         <!-- RoboHack -->
+        <div class="masonry-item">
+            <img class="image-content hover-image" 
+                src="large-images-1/ROBOHACK.png" 
+                alt="StockScreeningTool Desktop"
+                onclick="window.location.href='description.html?product=ROBOHACK'"
+                data-hover="large-images-2/ROBOHACK.png"
+                data-original="large-images-1/ROBOHACK.png">
+        </div>
+        <div class="masonry-item-mobile">
+            <img class="image-content" 
+                 src="thumbnails/ROBOHACK24.png" 
+                 alt="ROBOHACK Mobile"
+                 onclick="window.location.href='description.html?product=ROBOHACK'">
+        </div>
+
+    </div>
+
+    <div class="masonry-container" id="coming-soon-posts">
+        <!-- Coming Soon posts -->
+        <div class="masonry-item-soon">
+            <img class="video-content" src="coming-soon/Kew.png" />
+        </div>
+        <div class="masonry-item-soon">
+            <img class="video-content" src="coming-soon/Cambridge.png" />
+        </div>
+    </div>
+
+    <script>
+        // Toggle
+        document.getElementById('all').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('inactive');
+            document.getElementById('coming-soon').classList.add('inactive');
+            document.getElementById('coming-soon').classList.remove('active');
+            document.getElementById('all-posts').style.display = 'block';  // Show the container
+            document.getElementById('coming-soon-posts').style.display = 'none'; 
+        });
+
+        document.getElementById('coming-soon').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('inactive');
+            document.getElementById('all').classList.add('inactive');
+            document.getElementById('all').classList.remove('active');
+            document.getElementById('all-posts').style.display = 'none';  // Hide the container
+            document.getElementById('coming-soon-posts').style.display = 'block';
+        });
+
+
+        document.querySelectorAll('.hover-image').forEach(img => {
+            img.addEventListener('mouseenter', function () {
+                this.src = this.getAttribute('data-hover');
+            });
+
+            img.addEventListener('mouseleave', function () {
+                this.src = this.getAttribute('data-original');
+            });
+        });
+
+
+        window.addEventListener("resize", function() {
+            let masonryContainer = document.querySelector(".masonry-container");
+            if (masonryContainer) {
+                masonryContainer.style.display = "none";
+                setTimeout(() => {
+                    masonryContainer.style.display = "block";
+                }, 10);
+            }
+        });
+
+    </script>
+</body>
+</html>

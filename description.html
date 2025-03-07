@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;  
+            justify-content: flex-start;  
+            align-items: center;  
+            margin: 0;
+            padding: 0;
+        }
+
+        .header_container {
+            width: 95vw;
+            margin-top: 10px;
+            display: flex;
+            font-size: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .linkedin-logo {
+            font-size: 30px;
+            color: #6f6b6b;
+            transition: color 0.3s ease;
+        }
+
+        .linkedin-logo:hover {
+            color: #0e76a8;
+        }
+
+        .product-container {
+            display: flex;
+            flex-direction: column; 
+            gap: 20px; 
+            margin-top: 30px;
+            width:80vw;
+        }
+
+        .product-video {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .product-explanation {
+            width: 100%;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        /* Style for the title and year */
+        .product-title {
+            margin: 0; /* Remove default margin from title */
+            margin-top: 4px;
+        }
+
+        .product-year {
+            font-size: 14px;
+            color: #808080;
+            display: block;
+            margin-top: 4px; /* Set small top margin for spacing */
+        }
+
+        /* Back Icon Style */
+        .back-icon {
+            font-size: 25px;
+            color: #6f6b6b;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .back-icon:hover {
+            color: #0e76a8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header_container">
+        <!-- Back Icon (on the left side) -->
+        <i class="fas fa-arrow-left back-icon" onclick="window.history.back();"></i>
+        <a href="https://www.linkedin.com/in/emilefarman" target="_blank">
+            <i class="fab fa-linkedin linkedin-logo"></i>
+        </a>
+    </div>
+
+    <div class="product-container">
+        <div class="product-explanation">
+            <h2 id="product-title" class="product-title">Uhh there might bea bug...</h2>
+            <span id="product-year" class="product-year">????</span> 
+            <p id="product-description">Please let me know!</p>
+        </div>
+        <div class="product-video">
+            <video id="product-video" controls></video>
+        </div>
+    </div>
+
+    <script>
+        // Extract query parameter "product"
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+
+        // Define product details for each product
+        const productDetails = {
+            JourneyToHire: {
+                video: "videos/JourneyToHire.mp4",
+                title: "Journey To Hire",
+                description: "A Trello-inspired job application tracker designed to help you organise and log applications effortlessly. Built as a Chrome extension, it lets you upload your CV to analyze key skills and identify gaps. It also allows you to store job details and includes a celebration mode after submitting an application.",
+                year: "2025"
+            },
+            SmartGlasses: {
+                video: "videos/IndividualProjectReduced.mp4",
+                title: "Smart Glasses",
+                description: "Designed to assist individuals with total blindness, the smart glasses detect road signs and pedestrian crossings to improve navigation. It integrates SolidWorks for design, PyTorch for computer vision, and embedded software for real-time image capture and Bluetooth transmission.",
+                year: "2024"
+            },
+            FlareRoulette: {
+                video: "videos/FlareRoulette.mp4",
+                title: "BLOCKROULETTE",
+                description: "A winning project at ETHOxford 2024, BLOCKROULETTE is a decentralized gaming app leveraging Flare’s random number generator for provably fair gameplay. Developed in just a weekend, it integrates Solidity-based smart contracts for secure, transparent transactions and features seamless MetaMask wallet connectivity with a responsive front-end. ",
+                year: "2024 - (Featured in https://medium.com/flarenetwork/flare-hackathon-highlights-eth-oxford-873995a80752)"
+            },
+            iPear: {
+                video: "videos/ipear2.mp4",
+                title: "iPear",
+                description: "A child-friendly interactive tablet featuring a variety of games built with PyGame. The project encompassed market research, component selection and procurement, embedded software development, and the creation of a mobile app for parental controls. It also included an advertising campaign, culminating in a final presentation to BAE Systems.",
+                year: "2023"
+            },
+            StockScreeningTool: {
+                video: "videos/Equity2.mov",
+                title: "Equity Analysis Tool",
+                description: "A screening tool that simplifies equity analysis by filtering data sourced from Bloomberg. It allows users to set minimum and maximum thresholds and apply weighted factors for more precise filtering for various metrics.",
+                year: "2024"
+            },
+
+            ROBOHACK: {
+                video: "videos/Robot.mp4",
+                title: "Robohack",
+                description: "Participated in a robotics hackathon, working as part of a team to design and build a robot from scratch within 24 hours. The robot autonomously navigated a maze and competed against others, successfully reaching the quarter-finals.",
+                year: "2024"
+            }
+        };
+
+        // Set product details based on the query parameter
+        if (productDetails[productName]) {
+            document.getElementById('product-video').src = productDetails[productName].video;
+            document.getElementById('product-title').innerText = productDetails[productName].title;
+            document.getElementById('product-description').innerText = productDetails[productName].description;
+            document.getElementById('product-year').innerText = productDetails[productName].year;
+        } else {
+            // Default case if product is not found
+            document.getElementById('product-title').innerText = "Product Not Found";
+            document.getElementById('product-description').innerText = "Sorry, the requested product could not be found.";
+        }
+    </script>
+</body>
+</html>
